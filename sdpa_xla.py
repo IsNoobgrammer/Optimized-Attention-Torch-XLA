@@ -106,7 +106,7 @@ class XLASDPAWrapper(nn.Module):
 
         is_gqa = self.num_kv_groups > 1 
         
-        with sdpa_kernel([SDPBackend.MATH]):
+        with sdpa_kernel([SDPBackend.EFFICIENT_ATTENTION]): # CPP, FLASH_ATTENTION, XFORMER All available
             attn_output = F.scaled_dot_product_attention(
                 query=query,
                 key=key,

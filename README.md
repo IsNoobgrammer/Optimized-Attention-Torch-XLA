@@ -1,12 +1,16 @@
-Flash-Attention (block-Size = 512)
+XLA-Flash-Attention (block-Size = 512)
 
-Splash-Attention (custom block-size)
+XLA-Splash-Attention (Configurable - custom block-size) (Sparse Flash Attention)
 
-SDPA (torch-native)(Faster than Eager at all batch_size by 5-15% ) (Doesn't require jax or pallas kernel)
+SDPA (torch-native)(Faster than Eager at all batch_size by 5-15% ) **Doesn't require jax or pallas kernel**
+* Always Recommended over Eager ; works in any enviroment and allows for Longer Context and Faster Training
+* In Eager OOM at 4k but SDPA works Flawless Till 5120 ; (1.4B Params; 24Batch;) (xla.amp ; dtype=bf16)
+
+
 
 Caveats 
 * Splash requires hidden dim to be multiple of 128
-* Splash and Flash don't support GQA and 2nd order optimizers (ex: AdamW) (We are looking into this)
+* Splash and Flash don't support GQA and 2nd order optimizers (ex: AdamW) **Simultaneously** (We are looking into this)
 * SDPA is kind of more memory intensive than Eager (But is still recommened over Eager)
 
 
