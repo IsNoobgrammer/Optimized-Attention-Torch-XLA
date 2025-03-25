@@ -1,5 +1,13 @@
-Currently Supports Flash-Attention (block-Size = 512)
+Flash-Attention (block-Size = 512)
+
 Splash-Attention (custom block-size)
+
+SDPA (torch-native)(Faster than Eager at all batch_size by 5-15% ) (Doesn't require jax or pallas kernel)
+
+Caveats 
+* Splash requires hidden dim to be multiple of 128
+* Splash and Flash don't support GQA and 2nd order optimizers (ex: AdamW) (We are looking into this)
+* SDPA is kind of more memory intensive than Eager (But is still recommened over Eager)
 
 
 ```python
