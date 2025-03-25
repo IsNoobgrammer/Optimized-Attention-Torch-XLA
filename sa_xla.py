@@ -4,7 +4,7 @@
 import torch
 import torch.nn as nn
 from typing import Optional, Tuple
-from splash import SplashAttentionConfig, splash_attention
+from .splash import SplashAttentionConfig, splash_attention
 from transformers.models.llama.modeling_llama import apply_rotary_pos_emb
 
 SPLASH_ATTENTION_AVAILABLE = True
