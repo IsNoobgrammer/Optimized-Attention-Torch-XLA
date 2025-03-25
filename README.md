@@ -26,3 +26,14 @@ pip install 'torch_xla[pallas]' \
 pip install torchax transformers
 
 ```
+
+
+Get Started 
+
+```
+git clone https://github.com/IsNoobgrammer/Optimized-Attention-Torch-XLA xla_attention
+```
+
+```
+from xla_attention import fa_xla,sa_xla
+```
